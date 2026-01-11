@@ -111,10 +111,12 @@ export default function ProfilePage() {
                         <h1 className="text-xl font-bold text-foreground">
                             {profileData.personal.name}
                         </h1>
-                        <p className="text-muted-foreground text-sm">
-                            {profileData.personal.sex} | DOB: {profileData.personal.dob}
-                        </p>
-                        <div className="text-sm mt-2 space-y-1">
+                        <div className="text-sm text-muted-foreground">
+                            {profileData.personal.titles.map((title, i) => (
+                                <p key={i}>{title}</p>
+                            ))}
+                        </div>
+                        <div className="text-sm mt-2 space-y-2">
                             <div className="flex items-center justify-center md:justify-start text-muted-foreground">
                                 <Mail className="h-4 w-4 mr-2 flex-shrink-0" />
                                 <a href={`mailto:${profileData.contact.email}`} className="hover:text-primary break-all">
@@ -125,10 +127,12 @@ export default function ProfilePage() {
                                 <Phone className="h-4 w-4 mr-2 flex-shrink-0" />
                                 <span>{profileData.contact.phone.join(" | ")}</span>
                             </div>
-                            <div className="flex items-start justify-center md:justify-start text-muted-foreground">
-                                <MapPin className="h-4 w-4 mr-2 mt-0.5 flex-shrink-0" />
-                                <span>{profileData.contact.address}</span>
-                            </div>
+                            {profileData.contact.addresses.map((address, i) => (
+                                <div key={i} className="flex items-start justify-center md:justify-start text-muted-foreground">
+                                    <MapPin className="h-4 w-4 mr-2 mt-0.5 flex-shrink-0" />
+                                    <span>{address.location} ({address.timing})</span>
+                                </div>
+                            ))}
                         </div>
                     </div>
                 </div>

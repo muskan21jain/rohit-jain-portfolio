@@ -13,15 +13,28 @@ import {
   
   export const profileData = {
     personal: {
-      name: "Dr. Rohit Jain",
-      sex: "Male",
-      dob: "13/02/1987",
+      name: "Dr Rohit jain",
+      titles: [
+        "MBBS, MS, MCh (Gastrosurgery)",
+        "Assistant professor (KGMU)",
+        "Gastrosurgeon.",
+        "Liver, Pancreas and Intestine specialist"
+      ],
       photoUrl: "https://drive.google.com/uc?id=12hfAzCuk25QXne1eF3w5sfqHU1HWX9Ri",
     },
     contact: {
-      address: "502, Saroj Sadan, Naibasti, Gandhi Nagar, Lalitpur, Uttar Pradesh – 284403",
+      addresses: [
+        {
+            location: "Acrux medical store , subhash complex, chowk, Lucknow",
+            timing: "Mon- saturday- 4 to 6 pm"
+        },
+        {
+            location: "Jinendra clinic, pani ki tanki, Ranibagh,Lalitpur (UP)",
+            timing: "Every 4th Sunday ( 10 to 2pm)"
+        }
+      ],
       phone: ["+91 99564 85599", "+91 87073 82999"],
-      email: "drrohitjain1302@gmail.com",
+      email: "rohitjaindr24@gmail.com",
     },
     about: {
       quote: "I am working towards becoming a good surgical gastroenterologist.",
