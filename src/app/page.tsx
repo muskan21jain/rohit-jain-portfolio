@@ -23,6 +23,7 @@ import { Separator } from "@/components/ui/separator";
 import { profileData } from "./profile/data";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
+import Slider from "@/components/Slider";
 
 const Section = ({
   icon: Icon,
@@ -78,9 +79,17 @@ const TimelineItem = ({
 );
 
 export default function ProfilePage() {
+  const sliderImages = [
+    "https://drive.google.com/uc?id=15U1j4vZAyITdjzzJTlZjqAAY0C8pdj4U",
+    "https://drive.google.com/uc?id=1LdzZkEyZUVkp91O6QP8loXs4Btk9lPmx",
+    "https://drive.google.com/uc?id=1K0VxSEZrabnktESKAgvNP9SzNe-t2G1g",
+    "https://drive.google.com/uc?id=1ocOjRddEmjM2K4op37jS3AOcB38q84Bn",
+  ];
+
   return (
-    <div className="bg-background text-foreground">
+    <>
       <Header />
+      <Slider images={sliderImages} />
       <main className="container mx-auto px-4 py-8 md:py-16">
         <div className="grid grid-cols-1 lg:grid-cols-10 gap-8">
           {/* Left Column (Personal Info) */}
@@ -226,7 +235,7 @@ export default function ProfilePage() {
                     <item.icon className="h-5 w-5 text-accent mr-3 flex-shrink-0 mt-0.5" />
                     <div>
                         <p className="font-semibold text-foreground">{item.type}</p>
-                        <p className="text-muted-foreground">"{item.title}"</p>
+                        <p className="text-muted-foreground">'{item.title}'</p>
                     </div>
                   </li>
                 ))}
@@ -269,7 +278,7 @@ export default function ProfilePage() {
                     <item.icon className="h-5 w-5 text-accent mr-3 flex-shrink-0 mt-0.5" />
                     <div>
                         <p className="font-semibold text-foreground">{item.degree}</p>
-                        <p className="text-muted-foreground">"{item.title}"</p>
+                        <p className="text-muted-foreground">'{item.title}'</p>
                     </div>
                   </li>
                 ))}
@@ -280,6 +289,6 @@ export default function ProfilePage() {
         </div>
       </main>
       <Footer />
-    </div>
+    </>
   );
 }
