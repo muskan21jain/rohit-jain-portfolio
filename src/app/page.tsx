@@ -24,6 +24,7 @@ import { profileData } from "./profile/data";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
 import Slider from "@/components/Slider";
+import YouTubeSection from "@/components/YoutubeSection";
 
 const Section = ({
   icon: Icon,
@@ -284,6 +285,11 @@ export default function ProfilePage() {
                 ))}
               </ul>
             </Section>
+
+            <YouTubeSection
+              videoId="mZvWEr55d64"
+              title="Featured YouTube Video"
+            />
 
           </div>
         </div>
