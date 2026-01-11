@@ -86,12 +86,12 @@ export default function ProfilePage() {
           <div className="lg:col-span-1 space-y-8">
             <Card className="shadow-md">
               <CardContent className="p-6 text-center">
-                <div className="relative w-40 h-40 mx-auto mb-4">
+                <div className="relative w-20 h-20 mx-auto mb-4">
                   <Image
                     src={profileData.personal.photoUrl}
                     alt={profileData.personal.name}
-                    width={160}
-                    height={160}
+                    width={100}
+                    height={100}
                     className="rounded-full object-cover border-4 border-primary"
                     data-ai-hint="professional doctor portrait"
                   />
