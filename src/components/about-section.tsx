@@ -11,7 +11,7 @@ export default function AboutSection() {
           <div className="md:flex">
             <div className="md:w-1/3">
               <Image
-                src="https://placehold.co/400x500.png"
+                src="https://drive.google.com/uc?id=12hfAzCuk25QXne1eF3w5sfqHU1HWX9Ri"
                 alt="Dr. Rohit Jain"
                 width={400}
                 height={500}

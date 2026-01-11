@@ -8,10 +8,11 @@ import { Menu, HeartPulse } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
 const navLinks = [
-  { href: '#about', label: 'About' },
-  { href: '#experience', label: 'Experience' },
-  { href: '#profile', label: 'Profile' },
-  { href: '#contact', label: 'Contact' },
+  { href: '/', label: 'Home' },
+  { href: '/profile', label: 'Full Profile' },
+  { href: '/#about', label: 'About' },
+  { href: '/#experience', label: 'Experience' },
+  { href: '/#contact', label: 'Contact' },
 ];
 
 export default function Header() {
@@ -27,10 +28,47 @@ export default function Header() {
   }, []);
 
   const handleLinkClick = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>, href: string) => {
-    e.preventDefault();
-    document.querySelector(href)?.scrollIntoView({ behavior: 'smooth' });
+    if (href.startsWith('/#')) {
+        e.preventDefault();
+        // Navigate to home page if not already there, then scroll
+        if (window.location.pathname !== '/') {
+            window.location.href = `/${href.substring(1)}`;
+        } else {
+            document.querySelector(href.substring(1))?.scrollIntoView({ behavior: 'smooth' });
+        }
+    }
     setIsMobileMenuOpen(false);
   };
+
+  const NavLink = ({ href, label }: { href: string; label: string }) => {
+    if (href.startsWith('/#')) {
+      return (
+        <a href={href} onClick={(e) => handleLinkClick(e, href)}>
+          <Button variant="ghost">{label}</Button>
+        </a>
+      );
+    }
+    return (
+      <Link href={href}>
+        <Button variant="ghost">{label}</Button>
+      </Link>
+    );
+  };
+  
+  const MobileNavLink = ({ href, label }: { href: string; label: string }) => {
+     if (href.startsWith('/#')) {
+        return (
+            <a href={href} className="text-lg" onClick={(e) => handleLinkClick(e, href)}>
+                {label}
+            </a>
+        );
+     }
+     return (
+        <Link href={href} className="text-lg" onClick={() => setIsMobileMenuOpen(false)}>
+            {label}
+        </Link>
+     )
+  }
 
   return (
     <header className={cn(
@@ -46,11 +84,9 @@ export default function Header() {
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center gap-2">
           {navLinks.map(({ href, label }) => (
-            <Link key={label} href={href} onClick={(e) => handleLinkClick(e, href)}>
-              <Button variant="ghost">{label}</Button>
-            </Link>
+            <NavLink key={label} href={href} label={label} />
           ))}
-          <Link href="#contact" onClick={(e) => handleLinkClick(e, '#contact')}>
+          <Link href="#contact" onClick={(e) => handleLinkClick(e, '/#contact')}>
              <Button className="ml-2 bg-primary hover:bg-primary/90 text-primary-foreground">Book Appointment</Button>
           </Link>
         </nav>
@@ -67,11 +103,9 @@ export default function Header() {
             <SheetContent side="right">
               <div className="flex flex-col items-center gap-6 pt-10">
                 {navLinks.map(({ href, label }) => (
-                  <Link key={label} href={href} className="text-lg" onClick={(e) => handleLinkClick(e, href)}>
-                    {label}
-                  </Link>
+                    <MobileNavLink key={label} href={href} label={label}/>
                 ))}
-                <Link href="#contact" onClick={(e) => handleLinkClick(e, '#contact')}>
+                <Link href="/#contact" onClick={(e) => handleLinkClick(e, '/#contact')}>
                     <Button className="w-full" size="lg">Book Appointment</Button>
                 </Link>
               </div>
