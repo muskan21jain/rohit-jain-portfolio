@@ -38,7 +38,7 @@ export default function ContactSection() {
       <div className="container mx-auto px-4">
         <Card className="max-w-2xl mx-auto shadow-lg border-none">
           <CardHeader className="text-center">
-            <CardTitle className="text-3xl md:text-4xl font-bold text-primary-foreground-dark">Contact & Appointments</CardTitle>
+            <CardTitle className="text-3xl md:text-4xl font-bold text-foreground">Contact & Appointments</CardTitle>
             <CardDescription className="text-lg mt-2">
               Schedule a consultation or send a message.
             </CardDescription>

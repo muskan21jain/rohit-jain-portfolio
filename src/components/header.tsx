@@ -34,7 +34,9 @@ export default function Header() {
         if (window.location.pathname !== '/') {
             window.location.href = `/${href.substring(1)}`;
         } else {
-            document.querySelector(href.substring(1))?.scrollIntoView({ behavior: 'smooth' });
+            const targetId = href.substring(2); // remove /#
+            const targetElement = document.getElementById(targetId);
+            targetElement?.scrollIntoView({ behavior: 'smooth' });
         }
     }
     setIsMobileMenuOpen(false);
@@ -49,7 +51,7 @@ export default function Header() {
       );
     }
     return (
-      <Link href={href}>
+      <Link href={href} passHref>
         <Button variant="ghost">{label}</Button>
       </Link>
     );
@@ -76,7 +78,7 @@ export default function Header() {
       isScrolled ? "bg-background/80 shadow-md backdrop-blur-sm" : "bg-transparent"
     )}>
       <div className="container mx-auto flex h-20 items-center justify-between px-4">
-        <Link href="/" className="flex items-center gap-2 text-xl font-bold text-primary-foreground-dark">
+        <Link href="/" className="flex items-center gap-2 text-xl font-bold text-foreground">
           <HeartPulse className="h-7 w-7 text-primary" />
           <span>Dr. Rohit Jain</span>
         </Link>
@@ -86,9 +88,9 @@ export default function Header() {
           {navLinks.map(({ href, label }) => (
             <NavLink key={label} href={href} label={label} />
           ))}
-          <Link href="#contact" onClick={(e) => handleLinkClick(e, '/#contact')}>
+          <a href="/#contact" onClick={(e) => handleLinkClick(e, '/#contact')}>
              <Button className="ml-2 bg-primary hover:bg-primary/90 text-primary-foreground">Book Appointment</Button>
-          </Link>
+          </a>
         </nav>
 
         {/* Mobile Navigation */}
@@ -105,9 +107,9 @@ export default function Header() {
                 {navLinks.map(({ href, label }) => (
                     <MobileNavLink key={label} href={href} label={label}/>
                 ))}
-                <Link href="/#contact" onClick={(e) => handleLinkClick(e, '/#contact')}>
+                <a href="/#contact" onClick={(e) => handleLinkClick(e, '/#contact')}>
                     <Button className="w-full" size="lg">Book Appointment</Button>
-                </Link>
+                </a>
               </div>
             </SheetContent>
           </Sheet>

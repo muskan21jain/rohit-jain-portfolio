@@ -34,7 +34,7 @@ const Section = ({
 }) => (
   <Card className="shadow-md hover:shadow-lg transition-shadow duration-300">
     <CardHeader>
-      <CardTitle className="flex items-center text-xl md:text-2xl text-primary-foreground-dark">
+      <CardTitle className="flex items-center text-xl md:text-2xl text-foreground">
         <Icon className="mr-3 h-6 w-6 text-primary" />
         {title}
       </CardTitle>
@@ -64,7 +64,7 @@ const TimelineItem = ({
       </div>
     </div>
     <div className="grow pt-1 pb-8">
-      <h3 className="font-semibold text-primary-foreground-dark">
+      <h3 className="font-semibold text-foreground">
         {item.role || item.degree}
       </h3>
       <p className="text-sm text-muted-foreground">{item.institution}</p>
@@ -96,7 +96,7 @@ export default function ProfilePage() {
                     data-ai-hint="professional doctor portrait"
                   />
                 </div>
-                <h1 className="text-2xl font-bold text-primary-foreground-dark">
+                <h1 className="text-2xl font-bold text-foreground">
                   {profileData.personal.name}
                 </h1>
                 <p className="text-muted-foreground">
@@ -237,7 +237,7 @@ export default function ProfilePage() {
                   <li key={i} className="flex items-start">
                     <item.icon className="h-5 w-5 text-accent mr-3 flex-shrink-0 mt-0.5" />
                     <div>
-                        <p className="font-semibold text-primary-foreground-dark">{item.type}</p>
+                        <p className="font-semibold text-foreground">{item.type}</p>
                         <p className="text-muted-foreground">"{item.title}"</p>
                     </div>
                   </li>
@@ -251,7 +251,7 @@ export default function ProfilePage() {
                   <li key={i} className="flex items-start">
                     <item.icon className="h-5 w-5 text-accent mr-3 flex-shrink-0 mt-0.5" />
                     <div>
-                        <p className="font-semibold text-primary-foreground-dark">{item.title}</p>
+                        <p className="font-semibold text-foreground">{item.title}</p>
                         <p className="text-muted-foreground italic">{item.journal}</p>
                         {item.pmid && <p className="text-xs text-muted-foreground">PMID: {item.pmid}</p>}
                     </div>
@@ -266,7 +266,7 @@ export default function ProfilePage() {
                   <li key={i} className="flex items-start">
                     <item.icon className="h-5 w-5 text-accent mr-3 flex-shrink-0 mt-0.5" />
                      <div>
-                        <p className="font-semibold text-primary-foreground-dark">{item.name}</p>
+                        <p className="font-semibold text-foreground">{item.name}</p>
                         <p className="text-muted-foreground">{item.organization} {item.organization && '|'} {item.period}</p>
                     </div>
                   </li>
@@ -280,7 +280,7 @@ export default function ProfilePage() {
                   <li key={i} className="flex items-start">
                     <item.icon className="h-5 w-5 text-accent mr-3 flex-shrink-0 mt-0.5" />
                     <div>
-                        <p className="font-semibold text-primary-foreground-dark">{item.degree}</p>
+                        <p className="font-semibold text-foreground">{item.degree}</p>
                         <p className="text-muted-foreground">"{item.title}"</p>
                     </div>
                   </li>

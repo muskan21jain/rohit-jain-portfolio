@@ -6,7 +6,7 @@ export default function AboutSection() {
   return (
     <section id="about" className="py-16 md:py-24 bg-secondary">
       <div className="container mx-auto px-4">
-        <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-primary-foreground-dark">About Dr. Jain</h2>
+        <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-foreground">About Dr. Jain</h2>
         <Card className="max-w-4xl mx-auto overflow-hidden shadow-lg border-none">
           <div className="md:flex">
             <div className="md:w-1/3">
@@ -21,7 +21,7 @@ export default function AboutSection() {
             </div>
             <div className="md:w-2/3">
               <CardHeader>
-                <CardTitle className="text-2xl font-semibold text-primary-foreground-dark">A Commitment to Surgical Excellence</CardTitle>
+                <CardTitle className="text-2xl font-semibold text-foreground">A Commitment to Surgical Excellence</CardTitle>
               </CardHeader>
               <CardContent className="space-y-6 text-muted-foreground">
                 <p className="leading-relaxed">
@@ -33,7 +33,7 @@ export default function AboutSection() {
                       <GraduationCap className="h-6 w-6 text-primary" />
                     </div>
                     <div>
-                      <h4 className="font-semibold text-primary-foreground-dark">Education</h4>
+                      <h4 className="font-semibold text-foreground">Education</h4>
                       <p>King George’s Medical University (KGMU), Lucknow</p>
                     </div>
                   </div>
@@ -42,7 +42,7 @@ export default function AboutSection() {
                       <Briefcase className="h-6 w-6 text-primary" />
                     </div>
                     <div>
-                      <h4 className="font-semibold text-primary-foreground-dark">Current Position</h4>
+                      <h4 className="font-semibold text-foreground">Current Position</h4>
                       <p>Assistant Professor – Surgical Gastroenterology (SGE), KGMU</p>
                     </div>
                   </div>
