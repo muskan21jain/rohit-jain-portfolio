@@ -1,303 +1,369 @@
-
 import Image from "next/image";
 import {
-  User,
-  MapPin,
-  Phone,
   Mail,
-  List,
-  Briefcase,
+  Phone,
+  MapPin,
+  ShieldCheck,
   GraduationCap,
+  Briefcase,
   Award,
+  BookOpen,
+  PlayCircle,
   Mic,
   Presentation,
-  FlaskConical,
-  BookOpen,
-  BookMarked,
-  ShieldCheck,
-  Wrench,
-  CheckCircle,
 } from "lucide-react";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Separator } from "@/components/ui/separator";
-import { profileData } from "./profile/data";
-import Header from "@/components/header";
+
 import Footer from "@/components/footer";
 import Slider from "@/components/Slider";
 import YouTubeSection from "@/components/YoutubeSection";
+import ReadMore from "@/components/ReadMore";
+import { profileData } from "./profile/data";
 
+/* ================= MINIMAL PREMIUM HEADER ================= */
+const MinimalHeader = () => (
+  <header className="sticky top-0 z-50 bg-white/80 backdrop-blur border-b">
+    <div className="container mx-auto px-6 h-16 flex items-center justify-between max-w-6xl">
+      <span className="font-serif text-lg font-semibold text-foreground">
+        {profileData.personal.name}
+      </span>
+
+      <nav className="hidden md:flex gap-6 text-sm text-muted-foreground">
+        {[
+          ["About", "#about"],
+          ["Expertise", "#expertise"],
+          ["Journey", "#journey"],
+          ["Academics", "#academics"],
+          ["Videos", "#videos"],
+        ].map(([label, href]) => (
+          <a key={label} href={href} className="hover:text-primary transition">
+            {label}
+          </a>
+        ))}
+      </nav>
+    </div>
+  </header>
+);
+
+/* ================= SECTION WRAPPER ================= */
 const Section = ({
-  icon: Icon,
+  id,
   title,
+  subtitle,
   children,
 }: {
-  icon: React.ElementType;
+  id?: string;
   title: string;
+  subtitle?: string;
   children: React.ReactNode;
 }) => (
-  <Card className="shadow-md hover:shadow-lg transition-shadow duration-300">
-    <CardHeader>
-      <CardTitle className="flex items-center text-xl md:text-2xl text-foreground">
-        <Icon className="mr-3 h-6 w-6 text-primary" />
+  <section id={id} className="py-16 md:py-20">
+    <div className="container mx-auto px-6 max-w-6xl">
+      <h2 className="font-serif text-3xl md:text-4xl font-semibold">
         {title}
-      </CardTitle>
-    </CardHeader>
-    <CardContent>{children}</CardContent>
-  </Card>
-);
-
-const TimelineItem = ({
-  item,
-}: {
-  item: {
-    role?: string;
-    degree?: string;
-    institution: string;
-    period: string;
-    description?: string;
-    icon: React.ElementType;
-  };
-}) => (
-  <div className="flex gap-x-3">
-    <div className="relative last:after:hidden after:absolute after:top-7 after:bottom-0 after:start-3.5 after:w-px after:-translate-x-[0.5px] after:bg-border">
-      <div className="relative z-10 size-7 flex justify-center items-center">
-        <div className="size-7 rounded-full bg-secondary flex justify-center items-center">
-          <item.icon className="h-4 w-4 text-primary" />
-        </div>
-      </div>
-    </div>
-    <div className="grow pt-1 pb-8">
-      <h3 className="font-semibold text-foreground">
-        {item.role || item.degree}
-      </h3>
-      <p className="text-sm text-muted-foreground">{item.institution}</p>
-      <p className="text-xs text-muted-foreground mt-1">{item.period}</p>
-      {item.description && (
-        <p className="mt-2 text-sm text-muted-foreground">{item.description}</p>
+      </h2>
+      {subtitle && (
+        <p className="mt-2 text-muted-foreground max-w-3xl">
+          {subtitle}
+        </p>
       )}
+      <div className="mt-10">{children}</div>
     </div>
-  </div>
+  </section>
 );
 
+/* ================= PAGE ================= */
 export default function ProfilePage() {
   const sliderImages = [
     "https://drive.google.com/uc?id=15U1j4vZAyITdjzzJTlZjqAAY0C8pdj4U",
     "https://drive.google.com/uc?id=1LdzZkEyZUVkp91O6QP8loXs4Btk9lPmx",
-    "https://drive.google.com/uc?id=1K0VxSEZrabnktESKAgvNP9SzNe-t2G1g",
+    "https://drive.google.com/uc?id=1AN8col713JicGTgWee67NQqdKjEsF0GI",
     "https://drive.google.com/uc?id=1ocOjRddEmjM2K4op37jS3AOcB38q84Bn",
   ];
 
   return (
     <>
-      <Header />
-      <Slider images={sliderImages} />
-      <main className="container mx-auto px-4 py-8 md:py-16">
-        <div className="grid grid-cols-1 lg:grid-cols-10 gap-8">
-          {/* Left Column (Personal Info) */}
-          <div className="lg:col-span-3 space-y-8">
-            <Card className="shadow-md">
-              <CardContent className="p-6">
-                <div className="flex flex-col items-center text-center md:flex-row md:items-start md:text-left mb-6">
-                    <div className="relative w-24 h-24 mb-16 md:mb-0 md:mr-4 flex-shrink-0">
-                        <Image
-                        src={profileData.personal.photoUrl}
-                        alt={profileData.personal.name}
-                        width={96}
-                        height={96}
-                        className="rounded-full object-cover border-4 border-primary"
-                        />
-                    </div>
-                    <div>
-                        <h1 className="text-xl font-bold text-foreground">
-                            {profileData.personal.name}
-                        </h1>
-                        <div className="text-sm text-muted-foreground">
-                            {profileData.personal.titles.map((title, i) => (
-                                <p key={i}>{title}</p>
-                            ))}
-                        </div>
-                        <div className="text-sm mt-2 space-y-2">
-                            <div className="flex items-center justify-center md:justify-start text-muted-foreground">
-                                <Mail className="h-4 w-4 mr-2 flex-shrink-0" />
-                                <a href={`mailto:${profileData.contact.email}`} className="hover:text-primary break-all">
-                                    {profileData.contact.email}
-                                </a>
-                            </div>
-                            <div className="flex items-center justify-center md:justify-start text-muted-foreground">
-                                <Phone className="h-4 w-4 mr-2 flex-shrink-0" />
-                                <span>{profileData.contact.phone.join(" | ")}</span>
-                            </div>
-                            {profileData.contact.addresses.map((address, i) => (
-                                <div key={i} className="flex items-start justify-center md:justify-start text-muted-foreground">
-                                    <MapPin className="h-4 w-4 mr-2 mt-0.5 flex-shrink-0" />
-                                    <span>{address.location} ({address.timing})</span>
-                                </div>
-                            ))}
-                        </div>
-                    </div>
-                </div>
+      <MinimalHeader />
 
-                <Separator className="my-6" />
-
-                <div>
-                  <h3 className="text-lg font-semibold mb-4 flex items-center"><List className="mr-2 h-5 w-5" />About Me</h3>
-                  <p className="italic text-muted-foreground mb-4">
-                    "{profileData.about.quote}"
-                  </p>
-                  <h4 className="font-semibold mb-2">Interested In:</h4>
-                  <ul className="space-y-2 text-sm">
-                    {profileData.about.interests.map((interest) => (
-                      <li key={interest} className="flex items-start">
-                        <CheckCircle className="h-4 w-4 text-accent mr-2 mt-0.5 flex-shrink-0" />
-                        <span className="text-muted-foreground">{interest}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-
-              </CardContent>
-            </Card>
-          </div>
-
-          {/* Right Column (Professional Details) */}
-          <div className="lg:col-span-7 space-y-8">
-            <Section icon={Briefcase} title="Work Experience">
-              <div>
-                {profileData.experience.map((item, index) => (
-                  <TimelineItem key={index} item={item} />
-                ))}
-              </div>
-            </Section>
-
-            <Section icon={GraduationCap} title="Education">
-              <div>
-                {profileData.education.map((item, index) => (
-                  <TimelineItem key={index} item={item} />
-                ))}
-              </div>
-            </Section>
-
-            <div className="grid md:grid-cols-2 gap-8">
-              <Section icon={Award} title="Registration Details">
-                <ul className="space-y-2 text-sm">
-                  {profileData.registration.map((reg) => (
-                    <li key={reg.council}>
-                      <span className="font-semibold">{reg.council}: </span>
-                      <span className="text-muted-foreground">{reg.number}</span>
-                    </li>
-                  ))}
-                </ul>
-              </Section>
-              <Section icon={Award} title="Memberships">
-                <ul className="space-y-2 text-sm">
-                  {profileData.memberships.map((mem, i) => (
-                    <li key={i} className="flex items-center">
-                      <mem.icon className="h-4 w-4 text-accent mr-2" />
-                      <span className="text-muted-foreground">{mem.name}</span>
-                    </li>
-                  ))}
-                </ul>
-              </Section>
-            </div>
-            
-            <Section icon={ShieldCheck} title="Career Skills">
-               <ul className="space-y-2 text-sm">
-                 {profileData.skills.map((item) => (
-                   <li key={item.skill} className="flex items-start">
-                     <item.icon className="h-4 w-4 text-accent mr-2 mt-0.5 flex-shrink-0" />
-                     <span className="text-muted-foreground">{item.skill}</span>
-                   </li>
-                 ))}
-               </ul>
-            </Section>
-
-            <Section icon={Mic} title="Conferences Attended">
-              <ul className="space-y-3 text-sm">
-                {profileData.conferences.map((item) => (
-                  <li key={item.name} className="flex items-center">
-                    <item.icon className="h-4 w-4 text-accent mr-3 flex-shrink-0" />
-                    <span className="text-muted-foreground">{item.name}</span>
-                  </li>
-                ))}
-              </ul>
-            </Section>
-            
-            <Section icon={Wrench} title="Workshops Attended">
-              <ul className="space-y-3 text-sm">
-                {profileData.workshops.map((item) => (
-                  <li key={item.name} className="flex items-center">
-                    <item.icon className="h-4 w-4 text-accent mr-3 flex-shrink-0" />
-                    <span className="text-muted-foreground">{item.name}</span>
-                  </li>
-                ))}
-              </ul>
-            </Section>
-            
-            <Section icon={Presentation} title="Papers Presented">
-               <ul className="space-y-4 text-sm">
-                {profileData.papers.map((item, i) => (
-                  <li key={i} className="flex items-start">
-                    <item.icon className="h-5 w-5 text-accent mr-3 flex-shrink-0 mt-0.5" />
-                    <div>
-                        <p className="font-semibold text-foreground">{item.type}</p>
-                        <p className="text-muted-foreground">'{item.title}'</p>
-                    </div>
-                  </li>
-                ))}
-              </ul>
-            </Section>
-
-            <Section icon={BookOpen} title="Publications">
-              <ul className="space-y-4 text-sm">
-                {profileData.publications.map((item, i) => (
-                  <li key={i} className="flex items-start">
-                    <item.icon className="h-5 w-5 text-accent mr-3 flex-shrink-0 mt-0.5" />
-                    <div>
-                        <p className="font-semibold text-foreground">{item.title}</p>
-                        <p className="text-muted-foreground italic">{item.journal}</p>
-                        {item.pmid && <p className="text-xs text-muted-foreground">PMID: {item.pmid}</p>}
-                    </div>
-                  </li>
-                ))}
-              </ul>
-            </Section>
-
-            <Section icon={FlaskConical} title="Research Projects">
-              <ul className="space-y-4 text-sm">
-                {profileData.research.map((item, i) => (
-                  <li key={i} className="flex items-start">
-                    <item.icon className="h-5 w-5 text-accent mr-3 flex-shrink-0 mt-0.5" />
-                     <div>
-                        <p className="font-semibold text-foreground">{item.name}</p>
-                        <p className="text-muted-foreground">{item.organization} {item.organization && '|'} {item.period}</p>
-                    </div>
-                  </li>
-                ))}
-              </ul>
-            </Section>
-            
-            <Section icon={BookMarked} title="Thesis Work">
-              <ul className="space-y-4 text-sm">
-                {profileData.thesis.map((item, i) => (
-                  <li key={i} className="flex items-start">
-                    <item.icon className="h-5 w-5 text-accent mr-3 flex-shrink-0 mt-0.5" />
-                    <div>
-                        <p className="font-semibold text-foreground">{item.degree}</p>
-                        <p className="text-muted-foreground">'{item.title}'</p>
-                    </div>
-                  </li>
-                ))}
-              </ul>
-            </Section>
-
-            <YouTubeSection
-              videoId="mZvWEr55d64"
-              title="Featured YouTube Video"
+      {/* ================= HERO ================= */}
+      <section className="relative w-full overflow-hidden">
+        <div className="absolute inset-0 z-0">
+          <Slider images={sliderImages} />
+        </div>
+        <div className="absolute inset-0 z-10 bg-gradient-to-r from-black/70 via-black/40 to-transparent" />
+        <div className="relative z-20 container mx-auto px-6 py-16 md:py-24 flex flex-col md:flex-row items-center md:items-start gap-8">
+          <div className="flex-shrink-0">
+            <Image
+              src={profileData.personal.photoUrl}
+              alt={profileData.personal.name}
+              width={140}
+              height={140}
+              className="rounded-full border-4 border-white/30"
             />
+          </div>
+          <div className="text-center md:text-left flex-1">
+            <h1 className="font-serif text-4xl md:text-6xl font-bold leading-tight text-white">
+              {profileData.personal.name}
+            </h1>
+            <p className="mt-3 text-lg md:text-xl text-white/90">
+              {profileData.personal.titles.join(" • ")}
+            </p>
 
+            <div className="mt-6 space-y-2 text-sm text-white/85">
+              <div className="flex flex-col sm:flex-row sm:gap-4 items-center md:items-start justify-center md:justify-start">
+                <div className="flex items-center gap-2">
+                  <Phone className="h-4 w-4" />
+                  {profileData.contact.phone.join(" | ")}
+                </div>
+                <div className="flex items-center gap-2">
+                  <Mail className="h-4 w-4" />
+                  {profileData.contact.email}
+                </div>
+              </div>
+
+              {profileData.contact.addresses.map((addr, i) => (
+                <div key={i} className="flex items-start gap-2 justify-center md:justify-start">
+                  <MapPin className="h-4 w-4 mt-0.5" />
+                  <span>
+                    {addr.location}
+                    <span className="block text-xs text-white/70">{addr.timing}</span>
+                  </span>
+                </div>
+              ))}
+            </div>
+
+            <div className="mt-6 flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+              <a
+                href={`mailto:${profileData.contact.email}`}
+                className="inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-medium hover:bg-primary/90 transition"
+              >
+                <Mail className="h-4 w-4" />
+                Book Appointment
+              </a>
+              <a
+                href="#about"
+                className="inline-flex items-center gap-2 rounded-full bg-white text-black px-6 py-3 text-sm font-medium hover:bg-gray-200 transition"
+              >
+                <PlayCircle className="h-4 w-4" />
+                View Profile
+              </a>
+            </div>
           </div>
         </div>
-      </main>
+      </section>
+
+      {/* ================= ABOUT ================= */}
+      <Section
+        id="about"
+        title="About Dr. Rohit Jain"
+        subtitle="Senior surgical gastroenterologist with advanced clinical and academic expertise."
+      >
+        <div className="grid md:grid-cols-3 gap-10">
+          <div className="md:col-span-2 rounded-2xl border bg-white p-8 shadow-sm text-muted-foreground leading-relaxed">
+            <ReadMore text={profileData.about.bio} maxLength={600} />
+          </div>
+          <div className="space-y-4">
+            {[
+              "11+ Years of Surgical Experience",
+              "10,000+ Endoscopic Procedures",
+              "Advanced GI & Liver Surgeries",
+              "National & International Publications",
+            ].map((item) => (
+              <div
+                key={item}
+                className="flex items-center gap-3 rounded-xl border bg-muted/40 px-4 py-3 text-sm font-medium"
+              >
+                <ShieldCheck className="h-4 w-4 text-primary" />
+                {item}
+              </div>
+            ))}
+          </div>
+        </div>
+      </Section>
+
+      {/* ================= EXPERTISE ================= */}
+      <Section id="expertise" title="Areas of Expertise">
+        <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-6">
+          {profileData.skills.map((item) => (
+            <div
+              key={item.skill}
+              className="rounded-2xl border bg-white p-6 hover:shadow-lg transition"
+            >
+              <item.icon className="h-6 w-6 text-primary mb-4" />
+              <p className="font-medium">{item.skill}</p>
+            </div>
+          ))}
+        </div>
+      </Section>
+
+      {/* ================= JOURNEY ================= */}
+      <Section id="journey" title="Professional Journey">
+        <div className="grid md:grid-cols-2 gap-12">
+          <div>
+            <h3 className="mb-6 flex items-center gap-2 font-semibold text-lg">
+              <Briefcase className="text-primary" /> Clinical Experience
+            </h3>
+            <div className="space-y-6 border-l pl-6">
+              {profileData.experience.map((item, i) => (
+                <div key={i} className="relative">
+                  <span className="absolute -left-[30px] top-1 h-3 w-3 rounded-full bg-primary" />
+                  <p className="font-medium">{item.role}</p>
+                  <p className="text-sm text-muted-foreground">
+                    {item.institution} • {item.period}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+          <div>
+            <h3 className="mb-6 flex items-center gap-2 font-semibold text-lg">
+              <GraduationCap className="text-primary" /> Education & Training
+            </h3>
+            <div className="space-y-6 border-l pl-6">
+              {profileData.education.map((item, i) => (
+                <div key={i} className="relative">
+                  <span className="absolute -left-[30px] top-1 h-3 w-3 rounded-full bg-primary/70" />
+                  <p className="font-medium">{item.degree}</p>
+                  <p className="text-sm text-muted-foreground">
+                    {item.institution} • {item.period}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </Section>
+
+      {/* ================= ACADEMICS ================= */}
+      <Section id="academics" title="Academic & Research Work">
+        <div className="grid md:grid-cols-2 gap-10">
+          <div className="rounded-2xl border bg-white p-6">
+            <h4 className="mb-4 flex items-center gap-2 font-semibold">
+              <BookOpen className="h-5 w-5 text-primary" />
+              Publications
+            </h4>
+            <ul className="space-y-4">
+              {profileData.publications.map((p, i) => (
+                <li key={i}>
+                  <p className="font-medium">{p.title}</p>
+                  <p className="text-xs text-muted-foreground italic">
+                    {p.journal}
+                  </p>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div className="rounded-2xl border bg-white p-6">
+            <h4 className="mb-4 flex items-center gap-2 font-semibold">
+              <Award className="h-5 w-5 text-primary" />
+              Research Projects
+            </h4>
+            <ul className="space-y-4">
+              {profileData.research.map((r, i) => (
+                <li key={i}>
+                  <p className="font-medium">{r.name}</p>
+                  <p className="text-xs text-muted-foreground">
+                    {r.organization} • {r.period}
+                  </p>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </Section>
+
+      {/* ================= REGISTRATION & MEMBERSHIP ================= */}
+      <Section title="Registration Details & Memberships">
+        <div className="grid md:grid-cols-2 gap-10">
+          <div className="rounded-2xl border bg-white p-6">
+            <h4 className="mb-4 flex items-center gap-2 font-semibold">
+              <Award className="h-5 w-5 text-primary" />
+              Registration Details
+            </h4>
+            <ul className="space-y-2 text-sm">
+              {profileData.registration.map((reg) => (
+                <li key={reg.council}>
+                  <span className="font-medium">{reg.council}: </span>
+                  <span className="text-muted-foreground">{reg.number}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div className="rounded-2xl border bg-white p-6">
+            <h4 className="mb-4 flex items-center gap-2 font-semibold">
+              <ShieldCheck className="h-5 w-5 text-primary" />
+              Memberships
+            </h4>
+            <ul className="space-y-2 text-sm">
+              {profileData.memberships.map((mem, i) => (
+                <li key={i} className="flex items-center gap-2">
+                  <mem.icon className="h-4 w-4 text-primary" />
+                  <span className="text-muted-foreground">{mem.name}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </Section>
+
+      {/* ================= CONFERENCES & PAPERS ================= */}
+      <Section title="Conferences Attended & Papers Presented">
+        <div className="grid md:grid-cols-2 gap-10">
+          <div className="rounded-2xl border bg-white p-6">
+            <h4 className="mb-4 flex items-center gap-2 font-semibold">
+              <Mic className="h-5 w-5 text-primary" />
+              Conferences Attended
+            </h4>
+            <ul className="space-y-2 text-sm">
+              {profileData.conferences.map((conf, i) => (
+                <li key={i} className="flex items-center gap-2">
+                  <conf.icon className="h-4 w-4 text-primary" />
+                  <span className="text-muted-foreground">{conf.name}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div className="rounded-2xl border bg-white p-6">
+            <h4 className="mb-4 flex items-center gap-2 font-semibold">
+              <Presentation className="h-5 w-5 text-primary" />
+              Papers Presented
+            </h4>
+            <ul className="space-y-4 text-sm">
+              {profileData.papers.map((paper, i) => (
+                <li key={i} className="flex flex-col">
+                  <p className="font-medium text-foreground">{paper.type}</p>
+                  <p className="text-muted-foreground">{paper.title}</p>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </Section>
+
+      {/* ================= THESIS WORK ================= */}
+      <Section title="Thesis Work">
+        <div className="rounded-2xl border bg-white p-6">
+          <ul className="space-y-4 text-sm">
+            {profileData.thesis.map((thesis, i) => (
+              <li key={i} className="flex flex-col">
+                <p className="font-medium text-foreground">{thesis.degree}</p>
+                <p className="text-muted-foreground">{thesis.title}</p>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </Section>
+
+      {/* ================= VIDEOS ================= */}
+      <Section
+        id="videos"
+        title="Patient Education"
+        subtitle="Short videos to help patients understand procedures and conditions."
+      >
+        <div className="max-w-3xl">
+          <YouTubeSection videoId="mZvWEr55d64" />
+        </div>
+      </Section>
+
       <Footer />
     </>
   );

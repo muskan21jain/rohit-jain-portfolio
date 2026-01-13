@@ -1,4 +1,3 @@
-
 "use client";
 
 import { useState, useEffect } from 'react';
@@ -28,7 +27,7 @@ const Slider = ({ images }: SliderProps) => {
   }, [currentIndex]);
 
   return (
-    <div className="relative w-full h-screen overflow-hidden">
+    <div className="relative w-full h-[110vh] md:h-screen overflow-hidden">
       {images.map((src, index) => (
         <div
           key={src}
@@ -39,21 +38,27 @@ const Slider = ({ images }: SliderProps) => {
           <Image
             src={src}
             alt={`Slider image ${index + 1}`}
-            layout="fill"
-            objectFit="cover"
+            fill
+            style={{ objectFit: 'cover' }}
           />
         </div>
       ))}
+
+      {/* Left Arrow */}
       <div className="absolute top-1/2 left-4 transform -translate-y-1/2">
-        <button onClick={prevSlide} className="bg-black bg-opacity-50 text-white p-2 rounded-full">
+        <button className="bg-black bg-opacity-50 text-white p-2 rounded-full" onClick={prevSlide}>
           <ChevronLeft size={24} />
         </button>
       </div>
+
+      {/* Right Arrow */}
       <div className="absolute top-1/2 right-4 transform -translate-y-1/2">
-        <button onClick={nextSlide} className="bg-black bg-opacity-50 text-white p-2 rounded-full">
+        <button className="bg-black bg-opacity-50 text-white p-2 rounded-full" onClick={nextSlide}>
           <ChevronRight size={24} />
         </button>
       </div>
+
+      {/* Dots */}
       <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2">
         {images.map((_, index) => (
           <button

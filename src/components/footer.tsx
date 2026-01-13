@@ -11,7 +11,7 @@ export default function Footer() {
             <p className="text-muted-foreground">Gastrointestinal & HPB Surgeon</p>
           </div>
           <div className="flex space-x-4 mb-4 md:mb-0">
-            <Link href="#" aria-label="LinkedIn Profile">
+            <Link href="https://www.linkedin.com/in/rohit-jain-5a486a148/" target='/' aria-label="LinkedIn Profile">
               <Linkedin className="h-6 w-6 text-muted-foreground hover:text-primary transition-colors" />
             </Link>
             <Link href="mailto:contact@drrohitjain.com" aria-label="Email">
