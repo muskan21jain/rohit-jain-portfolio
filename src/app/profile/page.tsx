@@ -1,3 +1,4 @@
+
 import Image from "next/image";
 import {
   User,
@@ -93,15 +94,16 @@ export default function ProfilePage() {
                     width={100}
                     height={100}
                     className="rounded-full object-cover border-4 border-primary"
-                    data-ai-hint="professional doctor portrait"
                   />
                 </div>
                 <h1 className="text-2xl font-bold text-foreground">
                   {profileData.personal.name}
                 </h1>
-                <p className="text-muted-foreground">
-                  {profileData.personal.sex} | DOB: {profileData.personal.dob}
-                </p>
+                <div className="text-sm text-muted-foreground">
+                    {profileData.personal.titles.map((title, i) => (
+                        <p key={i}>{title}</p>
+                    ))}
+                </div>
               </CardContent>
             </Card>
 
@@ -109,11 +111,14 @@ export default function ProfilePage() {
               <div className="space-y-4 text-sm">
                 <div>
                   <h4 className="font-semibold flex items-center mb-1">
-                    <MapPin className="mr-2 h-4 w-4" /> Address
+                    <MapPin className="mr-2 h-4 w-4" /> Addresses
                   </h4>
-                  <p className="text-muted-foreground pl-6">
-                    {profileData.contact.address}
-                  </p>
+                  {profileData.contact.addresses.map((address, i) => (
+                      <div key={i} className="text-muted-foreground pl-6 mb-2">
+                        <p>{address.location}</p>
+                        <p className="text-xs">({address.timing})</p>
+                      </div>
+                  ))}
                 </div>
                 <div>
                   <h4 className="font-semibold flex items-center mb-1">
@@ -141,19 +146,14 @@ export default function ProfilePage() {
               </div>
             </Section>
 
-            <Section icon={List} title="About Me">
-              <p className="italic text-muted-foreground mb-4">
-                "{profileData.about.quote}"
-              </p>
-              <h4 className="font-semibold mb-2">Interested In:</h4>
-              <ul className="space-y-2 text-sm">
-                {profileData.about.interests.map((interest) => (
-                  <li key={interest} className="flex items-start">
-                    <CheckCircle className="h-4 w-4 text-accent mr-2 mt-0.5 flex-shrink-0" />
-                    <span className="text-muted-foreground">{interest}</span>
-                  </li>
-                ))}
-              </ul>
+            <Section icon={User} title="About Me">
+                <div className="text-muted-foreground text-sm space-y-4">
+                    {profileData.about.bio.map((paragraph, i) => (
+                      <p key={i} className="text-justify">
+                        {paragraph}
+                      </p>
+                    ))}
+                </div>
             </Section>
           </div>
 
@@ -238,7 +238,7 @@ export default function ProfilePage() {
                     <item.icon className="h-5 w-5 text-accent mr-3 flex-shrink-0 mt-0.5" />
                     <div>
                         <p className="font-semibold text-foreground">{item.type}</p>
-                        <p className="text-muted-foreground">"{item.title}"</p>
+                        <p className="text-muted-foreground">'{item.title}'</p>
                     </div>
                   </li>
                 ))}
@@ -281,7 +281,7 @@ export default function ProfilePage() {
                     <item.icon className="h-5 w-5 text-accent mr-3 flex-shrink-0 mt-0.5" />
                     <div>
                         <p className="font-semibold text-foreground">{item.degree}</p>
-                        <p className="text-muted-foreground">"{item.title}"</p>
+                        <p className="text-muted-foreground">'{item.title}'</p>
                     </div>
                   </li>
                 ))}
