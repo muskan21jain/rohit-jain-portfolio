@@ -61,19 +61,16 @@ import {
         role: "Assistant Professor",
         department: "Department of Surgical Gastroenterology",
         institution: "King George Medical University, Lucknow",
-        period: "2nd Jan 2024 – Present",
         icon: Briefcase,
       },
       {
         role: "Senior Resident (MCh – Surgical Gastroenterology)",
         institution: "King George Medical University, Lucknow",
-        period: "17th Dec 2020 – 16th Dec 2023",
         icon: Briefcase,
       },
       {
         role: "Senior Resident – General Surgery",
         institution: "RML Hospital, New Delhi",
-        period: "Nov 2017 – Nov 2020",
         description: "Worked as Senior Resident in the Department of General Surgery, RML Hospital, New Delhi.",
         icon: Briefcase,
       },
@@ -82,19 +79,16 @@ import {
       {
         degree: "MCh – Surgical Gastroenterology",
         institution: "King George’s Medical University, Lucknow",
-        period: "Dec 2020 – Dec 2023",
         icon: GraduationCap,
       },
       {
         degree: "MS – General Surgery (Junior Resident)",
         institution: "MLB Medical College, Jhansi (UP)",
-        period: "June 2014 – June 2017",
         icon: GraduationCap,
       },
       {
         degree: "MBBS",
         institution: "Govt. Stanley Medical College, Chennai",
-        period: "Aug 2007 – March 2013",
         icon: GraduationCap,
       },
     ],
@@ -138,18 +132,18 @@ import {
     ],
     publications: [
       {
-        journal: "Pancreas (2025)",
+        journal: "",
         title: "Clinical Outcome and Quality of Life After Frey’s Procedure and Longitudinal Pancreaticojejunostomy for Chronic Pancreatitis",
         pmid: "41172133",
         icon: BookOpen,
       },
       {
-        journal: "Annals of Coloproctology (2025 – Accepted)",
+        journal: "Annals of Coloproctology",
         title: "Feasibility of the CLAP Procedure in Laparoscopic Right Hemicolectomy for Ileocecal Tuberculosis",
         icon: BookOpen,
       },
       {
-        journal: "Techniques in Coloproctology (2025 – Accepted)",
+        journal: "Techniques in Coloproctology",
         title: "Laparoscopic Total Extraperitoneal Anterior Rectopexy (L-TEAR) – A Preliminary Report",
         icon: BookOpen,
       },
@@ -158,19 +152,16 @@ import {
       {
         name: "Elobixibat Study – Chronic Constipation",
         organization: "Dr. Reddy’s Laboratories",
-        period: "2023 – Present",
         icon: FlaskConical,
       },
       {
         name: "ABX464 Phase III Study – Ulcerative Colitis",
         organization: "",
-        period: "2024 – Present",
         icon: FlaskConical,
       },
       {
         name: "Addaven Phase IV Study – Parenteral Nutrition",
         organization: "",
-        period: "Dec 2025 – Present",
         icon: FlaskConical,
       },
     ],
@@ -190,8 +181,8 @@ import {
       { skill: "Open & advanced laparoscopic GI surgeries (benign & malignant)", icon: ShieldCheck },
       { skill: "Upper GI endoscopy & colonoscopy", icon: ShieldCheck },
       { skill: "Therapeutic ERCP", icon: ShieldCheck },
-      { skill: "Assisted in: 26 Living Donor Liver Transplants", icon: ShieldCheck },
-      { skill: "Assisted in: 6 Deceased Donor Liver Transplants", icon: ShieldCheck },
+      { skill: "Assisted in: Living Donor Liver Transplants", icon: ShieldCheck },
+      { skill: "Assisted in: Deceased Donor Liver Transplants", icon: ShieldCheck },
     ],
   };
   

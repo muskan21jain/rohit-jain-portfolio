@@ -78,6 +78,7 @@ export default function ProfilePage() {
     "https://drive.google.com/uc?id=1LdzZkEyZUVkp91O6QP8loXs4Btk9lPmx",
     "https://drive.google.com/uc?id=1AN8col713JicGTgWee67NQqdKjEsF0GI",
     "https://drive.google.com/uc?id=1ocOjRddEmjM2K4op37jS3AOcB38q84Bn",
+    "https://drive.google.com/uc?id=1krVHVcrfBMHKaxy3kqUMb488Gsa6Jrk4"
   ];
 
   return (
@@ -208,7 +209,7 @@ export default function ProfilePage() {
                   <span className="absolute -left-[30px] top-1 h-3 w-3 rounded-full bg-primary" />
                   <p className="font-medium">{item.role}</p>
                   <p className="text-sm text-muted-foreground">
-                    {item.institution} • {item.period}
+                    {item.institution}
                   </p>
                 </div>
               ))}
@@ -224,7 +225,7 @@ export default function ProfilePage() {
                   <span className="absolute -left-[30px] top-1 h-3 w-3 rounded-full bg-primary/70" />
                   <p className="font-medium">{item.degree}</p>
                   <p className="text-sm text-muted-foreground">
-                    {item.institution} • {item.period}
+                    {item.institution}
                   </p>
                 </div>
               ))}
@@ -262,42 +263,8 @@ export default function ProfilePage() {
                 <li key={i}>
                   <p className="font-medium">{r.name}</p>
                   <p className="text-xs text-muted-foreground">
-                    {r.organization} • {r.period}
+                    {r.organization}
                   </p>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </div>
-      </Section>
-
-      {/* ================= REGISTRATION & MEMBERSHIP ================= */}
-      <Section title="Registration Details & Memberships">
-        <div className="grid md:grid-cols-2 gap-10">
-          <div className="rounded-2xl border bg-white p-6">
-            <h4 className="mb-4 flex items-center gap-2 font-semibold">
-              <Award className="h-5 w-5 text-primary" />
-              Registration Details
-            </h4>
-            <ul className="space-y-2 text-sm">
-              {profileData.registration.map((reg) => (
-                <li key={reg.council}>
-                  <span className="font-medium">{reg.council}: </span>
-                  <span className="text-muted-foreground">{reg.number}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-          <div className="rounded-2xl border bg-white p-6">
-            <h4 className="mb-4 flex items-center gap-2 font-semibold">
-              <ShieldCheck className="h-5 w-5 text-primary" />
-              Memberships
-            </h4>
-            <ul className="space-y-2 text-sm">
-              {profileData.memberships.map((mem, i) => (
-                <li key={i} className="flex items-center gap-2">
-                  <mem.icon className="h-4 w-4 text-primary" />
-                  <span className="text-muted-foreground">{mem.name}</span>
                 </li>
               ))}
             </ul>
