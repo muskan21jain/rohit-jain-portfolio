@@ -15,10 +15,7 @@ import {
     personal: {
       name: "Dr Rohit Jain",
       titles: [
-        "MBBS, MS, MCh (Gastrosurgery)",
-        "Assistant professor (KGMU)",
-        "Gastrosurgeon.",
-        "Liver, Pancreas and Intestine specialist"
+        "Gastroenterologist |Gall Bladder | Pancreas | Esophagus| Liver |ERCP | Best Surgeon"
       ],
       photoUrl: "https://drive.google.com/uc?id=12hfAzCuk25QXne1eF3w5sfqHU1HWX9Ri",
     },
@@ -38,22 +35,24 @@ import {
     },
     about: {
       bio: [
-        "Dr. Rohit Jain is a highly skilled Gastrointestinal and Hepatobiliary, Liver and Intestinal Surgeon with over 11 years of extensive experience in advanced surgical gastroenterology. Known for his clinical precision, academic excellence, and patient-centric approach, he has managed a wide spectrum of complex gastrointestinal, hepatobiliary, and pancreatic disorders, including high-risk and referral cases from across India.",
-        "Dr. Jain completed his MBBS from the prestigious Government Stanley Medical College, Chennai (2007 batch), laying a strong foundation in clinical medicine and surgery. He subsequently pursued post-graduation (MS – General Surgery) from MLB Medical College, Jhansi, where he developed strong operative skills and surgical judgment.",
-        "With a keen interest in advanced gastrointestinal surgery, Dr. Jain undertook super-specialty training (MCh) in Gastrointestinal Surgery from King George’s Medical University (KGMU), Lucknow in 2014. His training at one of India’s premier academic institutions provided him with in-depth exposure to complex GI, hepatobiliary, pancreatic, and colorectal surgeries.",
-        "Dr. Jain possesses extensive expertise in diagnostic and therapeutic endoscopy, having performed over 10,000 diagnostic endoscopic procedures, including upper GI endoscopy and colonoscopy. His advanced endoscopic experience includes more than 300 ERCP procedures, along with specialized interventions such as POEM (Per-Oral Endoscopic Myotomy) and ESD (Endoscopic Submucosal Dissection).",
-        "In addition to endoscopy, Dr. Jain has actively participated in multiple liver transplantation procedures, including both Living Donor Liver Transplantation (LDLT) and Deceased Donor Liver Transplantation (DDLT), contributing to perioperative and surgical management.",
-        "His professional journey includes 5 years of experience at Dr. Ram Manohar Lohia Hospital, New Delhi, and 5 years at King George’s Medical University, Lucknow, where he managed complex tertiary-care referrals and trained junior surgeons.",
-        "Dr. Jain has successfully performed and assisted in a wide range of advanced and complex surgeries, including:",
+        "Dr. Rohit Jain is a highly skilled *Gastrointestinal and Hepatobiliary, Liver and intestinal Surgeon* with over *11 years of extensive experience* in advanced surgical gastroenterology.",
+        "He is providing advanced treatment for gall bladder stones, bile duct stones, pancreatitis, pancreatic diseases, liver and stomach surgery, and intestinal obstruction.",
+        "He specializes in laparoscopic gall bladder surgery, ERCP for bile duct stones, management of acute and chronic pancreatitis, and pancreatic cancer surgery.Known for his clinical precision, academic excellence, and patient-centric approach, he has managed a wide spectrum of complex gastrointestinal, hepatobiliary, and pancreatic disorders, including high-risk and referral cases from across India.",
+        "Dr. Jain completed his *MBBS* from the prestigious *Government Stanley Medical College, Chennai* (2007 batch), laying a strong foundation in clinical medicine and surgery. He subsequently pursued *post-graduation (MS – General Surgery)* from *MLB Medical College, Jhansi*, where he developed strong operative skills and surgical judgment.",
+        "With a keen interest in advanced gastrointestinal surgery, Dr. Jain undertook *super-specialty training (MCh) in Gastrointestinal Surgery* from *King George’s Medical University (KGMU), Lucknow* . His training at one of India’s premier academic institutions provided him with in-depth exposure to complex GI, hepatobiliary, pancreatic, and colorectal surgeries.",
+        "Dr. Jain possesses *extensive expertise in diagnostic and therapeutic endoscopy, having performed **over 10,000 diagnostic endoscopic procedures, including upper GI endoscopy and colonoscopy. His advanced endoscopic experience includes **more than 300 ERCP procedures, along with specialized interventions such as **POEM (Per-Oral Endoscopic Myotomy)* and *ESD (Endoscopic Submucosal Dissection)*.",
+        "In addition to endoscopy, Dr. Jain has actively participated in *multiple liver transplantation procedures, including both **Living Donor Liver Transplantation (LDLT)* and *Deceased Donor Liver Transplantation (DDLT)*, contributing to perioperative and surgical management.",
+        "His professional journey includes *5 years of experience at Dr. Ram Manohar Lohia Hospital, New Delhi, and **5 years at King George’s Medical University, Lucknow*, where he managed complex tertiary-care referrals and trained junior surgeons.",
+        "Dr. Jain has successfully performed and assisted in a wide range of *advanced and complex surgeries*, including:",
         "- Esophagectomy",
         "- Colorectal surgeries",
         "- Hepatectomy",
         "- Biliary surgeries",
         "- Pancreatectomy",
         "- Splenectomy",
-        "These procedures have been performed for both benign and malignant conditions, often in high-risk and referred patients.",
-        "Academically inclined, Dr. Jain has multiple publications in national and international peer-reviewed journals, reflecting his commitment to research, evidence-based practice, and continuous academic growth.",
-        "With a blend of advanced surgical expertise, vast endoscopic experience, and a compassionate approach to patient care, Dr. Rohit Jain continues to be a trusted name in the field of Surgical Gastroenterology."
+        "These procedures have been performed for both *benign and malignant conditions*, often in high-risk and referred patients.",
+        "Academically inclined, Dr. Jain has *multiple publications in national and international peer-reviewed journals*, reflecting his commitment to research, evidence-based practice, and continuous academic growth.",
+        "With a blend of advanced surgical expertise, vast endoscopic experience, and a compassionate approach to patient care, *Dr. Rohit Jain continues to be a trusted name in the field of Surgical Gastroenterology*."
       ]
     },
     experience: [

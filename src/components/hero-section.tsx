@@ -29,7 +29,7 @@ export default function HeroSection() {
             </Link>
           </div>
         </div>
-        <div className="absolute inset-0 bg-grid-slate-100 [mask-image:linear-gradient(to_bottom,white,transparent)] dark:bg-grid-slate-700/40"></div>
+        <div className="absolute inset-0 [mask-image:linear-gradient(to_bottom,white,transparent)]"></div>
     </section>
   );
 }
