@@ -15,6 +15,15 @@ const ReviewProfileSlider = () => {
         videoId: "mExBu4AD3MI", // your youtube id
       },
       {
+        type: "video",
+        title: "Patient Video Testimonial",
+        name: "Verified Patient",
+        role: "Post Surgery Recovery",
+        text:
+          "मुझे पित्त की नली में गंभीर चोट थी और हालत काफी जटिल हो गई थी। डॉ. रोहित जैन ने बहुत धैर्य और स्पष्टता के साथ पूरी स्थिति समझाई। ऑपरेशन सफल रहा और रिकवरी भी उम्मीद से बेहतर रही। पूरी टीम का व्यवहार बहुत सहयोगपूर्ण था। आज मैं बिल्कुल स्वस्थ महसूस कर रहा हूँ।",
+        videoId: "rxUXyu5RnOU", // your youtube id
+      },
+      {
         type: "image",
         title: "Patient Experience",
         name: "Family Feedback",
