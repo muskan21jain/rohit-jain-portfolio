@@ -11,6 +11,7 @@ import {
   PlayCircle,
   Mic,
   Presentation,
+  ChevronLeft, ChevronRight 
 } from "lucide-react";
 
 import Footer from "@/components/footer";
@@ -18,8 +19,8 @@ import Slider from "@/components/Slider";
 import YouTubeSection from "@/components/YoutubeSection";
 import ReadMore from "@/components/ReadMore";
 import { profileData } from "./profile/data";
+import ReviewSection from "@/components/ReviewsSection";
 
-/* ================= MINIMAL PREMIUM HEADER ================= */
 const MinimalHeader = () => (
   <header className="sticky top-0 z-50 bg-white/80 backdrop-blur border-b">
     <div className="container mx-auto px-6 h-16 flex items-center justify-between max-w-6xl">
@@ -44,7 +45,6 @@ const MinimalHeader = () => (
   </header>
 );
 
-/* ================= SECTION WRAPPER ================= */
 const Section = ({
   id,
   title,
@@ -71,7 +71,6 @@ const Section = ({
   </section>
 );
 
-/* ================= PAGE ================= */
 export default function ProfilePage() {
   const sliderImages = [
     "https://drive.google.com/uc?id=15U1j4vZAyITdjzzJTlZjqAAY0C8pdj4U",
@@ -84,8 +83,6 @@ export default function ProfilePage() {
   return (
     <>
       <MinimalHeader />
-
-      {/* ================= HERO ================= */}
       <section className="relative w-full overflow-hidden">
         <div className="absolute inset-0 z-0">
           <Slider images={sliderImages} />
@@ -152,7 +149,6 @@ export default function ProfilePage() {
         </div>
       </section>
 
-      {/* ================= ABOUT ================= */}
       <Section
         id="about"
         title="About Dr. Rohit Jain"
@@ -181,7 +177,6 @@ export default function ProfilePage() {
         </div>
       </Section>
 
-      {/* ================= EXPERTISE ================= */}
       <Section id="expertise" title="Areas of Expertise">
         <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-6">
           {profileData.skills.map((item) => (
@@ -196,7 +191,6 @@ export default function ProfilePage() {
         </div>
       </Section>
 
-      {/* ================= JOURNEY ================= */}
       <Section id="journey" title="Professional Journey">
         <div className="grid md:grid-cols-2 gap-12">
           <div>
@@ -234,7 +228,6 @@ export default function ProfilePage() {
         </div>
       </Section>
 
-      {/* ================= ACADEMICS ================= */}
       <Section id="academics" title="Academic & Research Work">
         <div className="grid md:grid-cols-2 gap-10">
           <div className="rounded-2xl border bg-white p-6">
@@ -272,7 +265,6 @@ export default function ProfilePage() {
         </div>
       </Section>
 
-      {/* ================= CONFERENCES & PAPERS ================= */}
       <Section title="Conferences Attended & Papers Presented">
         <div className="grid md:grid-cols-2 gap-10">
           <div className="rounded-2xl border bg-white p-6">
@@ -306,7 +298,6 @@ export default function ProfilePage() {
         </div>
       </Section>
 
-      {/* ================= THESIS WORK ================= */}
       <Section title="Thesis Work">
         <div className="rounded-2xl border bg-white p-6">
           <ul className="space-y-4 text-sm">
@@ -320,7 +311,8 @@ export default function ProfilePage() {
         </div>
       </Section>
 
-      {/* ================= VIDEOS ================= */}
+      <ReviewSection />
+
       <Section
         id="videos"
         title="Patient Education"
